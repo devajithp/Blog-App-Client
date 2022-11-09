@@ -14,7 +14,7 @@ function Header() {
     <AppBar position='fixed' sx={{background:"linear-gradient(90deg, rgba(64,3,44,1) 10%, rgba(130,88,116,1) 29%, rgba(198,176,194,1) 100%)"}}>
        <Toolbar display={"flex"}>
         <Typography variant='h5'>
-              BlogsApp
+              D-Blogs
         </Typography>
        {isLoggedIn &&<Box marginLeft="auto" marginRight="auto" display={"flex"}>
           <Tabs  value={value} onChange={(e,value)=>setValue(value)}>
