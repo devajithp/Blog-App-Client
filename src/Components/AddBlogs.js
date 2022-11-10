@@ -17,7 +17,7 @@ function AddBlogs() {
   }
   
   const handleSubmit=async ()=>{
-   let res=await axios.post("https://devajithblog.herokuapp.com/api/blog/addblog",blogData)
+   let res=await axios.post("https://upset-pocket-hen.cyclic.app/api/blog/addblog",blogData)
        console.log(res.data)
       setTitle("")
       setDescription("")

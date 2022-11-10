@@ -15,7 +15,7 @@ function Login() {
   }
   const handleSubmit=()=>
   {
-    axios.post("https://devajithblog.herokuapp.com/api/user/login ",userData).then((res)=>
+    axios.post("https://upset-pocket-hen.cyclic.app/api/user/login ",userData).then((res)=>
     {
     
       console.log(res.data)

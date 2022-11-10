@@ -19,7 +19,7 @@ function Signup() {
   const handleSubmit=()=>
   {
    
-   axios.post("https://devajithblog.herokuapp.com/api/user/signup",userData).then((res)=>
+   axios.post("https://upset-pocket-hen.cyclic.app/api/user/signup",userData).then((res)=>
    {
     console.log(res)
     localStorage.setItem("userId",res.data.user._id)

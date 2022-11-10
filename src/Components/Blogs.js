@@ -5,7 +5,7 @@ function Blogs() {
   const[blogs,setBlogs]= useState()
  useEffect(()=>
  {
-    axios.get("https://devajithblog.herokuapp.com/api/blog").then((res)=>
+    axios.get("https://upset-pocket-hen.cyclic.app/api/blog").then((res)=>
     {
       
       setBlogs(res.data.blogs)

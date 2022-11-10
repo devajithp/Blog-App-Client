@@ -15,7 +15,7 @@ function UserBlogs() {
  {
     let userId=localStorage.getItem("userId")
     
-    axios.get(`https://devajithblog.herokuapp.com/api/blog/userblog/${userId}`).then((res)=>
+    axios.get(`https://upset-pocket-hen.cyclic.app/api/blog/userblog/${userId}`).then((res)=>
     {
       
       
@@ -43,7 +43,7 @@ function UserBlogs() {
           console.log(blog._id)
           if(window.confirm("Are you sure you want to delete this blog ?"))
           {
-           axios.delete(`https://devajithblog.herokuapp.com/api/blog/delete/${blog._id}`).then((res)=>
+           axios.delete(`https://upset-pocket-hen.cyclic.app/api/blog/delete/${blog._id}`).then((res)=>
            {
             console.log(res.data)
             history.push("/myblogs")

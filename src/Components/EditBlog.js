@@ -14,7 +14,7 @@ function EditBlog() {
     {
       
        
-       axios.get(`https://devajithblog.herokuapp.com/api/blog/blogbyid/${blogId}`).then((res)=>
+       axios.get(`https://upset-pocket-hen.cyclic.app/api/blog/blogbyid/${blogId}`).then((res)=>
        {
           
           setTitle(res.data.blog.title)
@@ -30,7 +30,7 @@ function EditBlog() {
           }
           
           
-      axios.put(`https://devajithblog.herokuapp.com/api/blog/update/${blogId}`,updateData).then((res)=>
+      axios.put(`https://upset-pocket-hen.cyclic.app/api/blog/update/${blogId}`,updateData).then((res)=>
       {
         console.log(res.data)
         history.push("/myblogs")
