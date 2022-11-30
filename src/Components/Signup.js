@@ -18,6 +18,14 @@ function Signup() {
   }
   const handleSubmit=()=>
   {
+    let name=document.getElementById("name").value
+    let email=document.getElementById("email").value
+    let password=document.getElementById("password").value
+    if(name.trim()===""||email.trim()===""||password.trim()==="")
+    {
+     alert("enter all details")
+    }
+    {
    
    axios.post("https://upset-pocket-hen.cyclic.app/api/user/signup",userData).then((res)=>
    {
@@ -34,7 +42,7 @@ function Signup() {
     history.push("/blogs")
    })
 
-  
+    }
    
   }
 
@@ -49,9 +57,12 @@ function Signup() {
        marginTop={5}
        boxShadow="10px 10px 20px #0d0c0c">
        <Typography variant='h4'>Signup</Typography>
-       <TextField onChange={(e)=>setName(e.target.value)}  placeholder='enter name' type={"text"} margin='normal'/>
-       <TextField onChange={(e)=>setEmail(e.target.value)}  placeholder='enter email' type={"email"} margin='normal'/>
-       <TextField onChange={(e)=>setPassword(e.target.value)}  placeholder='enter password' type={"password"} margin='normal'/>
+       <TextField id='name' onChange={(e)=>setName(e.target.value)}  placeholder='enter name' type={"text"} margin='normal'/>
+       {name.trim()===""&& <small style={{color:"red"}}>enter name</small>}
+       <TextField id='email' onChange={(e)=>setEmail(e.target.value)}  placeholder='enter email' type={"email"} margin='normal'/>
+       {email.trim()===""&& <small style={{color:"red"}}>enter email</small>}
+       <TextField id='password' onChange={(e)=>setPassword(e.target.value)}  placeholder='enter password' type={"password"} margin='normal'/>
+       {password.trim()===""&& <small style={{color:"red"}} >enter password</small>}
        <Button onClick={handleSubmit} marginTop={5}>Submit</Button>
        <p>Already have account?</p>
        <Button onClick={()=>history.push("/")}  marginTop={3} >login</Button>
