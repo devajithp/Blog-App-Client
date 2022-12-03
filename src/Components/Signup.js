@@ -10,6 +10,8 @@ function Signup() {
   const[name, setName]=useState("")
   const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")
+  const[loading,setLoading]=useState(false)
+  const[error,setError]=useState(false)
   
   let userData={
     name:name,
@@ -26,20 +28,36 @@ function Signup() {
      alert("enter all details")
     }
     {
-   
+      setError(false)
+      setLoading(true)
    axios.post("https://upset-pocket-hen.cyclic.app/api/user/signup",userData).then((res)=>
    {
+    
     console.log(res)
     localStorage.setItem("userId",res.data.user._id)
       let id= localStorage.getItem("userId")
       console.log(id)
+      setName("")
+      setEmail("")
+      setPassword("")
 
    }).then(()=>
    {
+    setLoading(false)
+      setError(false)
     dispatch(authActions.login())
    }).then(()=>
    {
     history.push("/blogs")
+   }).catch((err)=>
+   {
+    if(err)
+    { setName("")
+      setEmail("")
+      setPassword("")
+      setLoading(false)
+      setError(true)
+    }
    })
 
     }
@@ -57,16 +75,18 @@ function Signup() {
        marginTop={5}
        boxShadow="10px 10px 20px #0d0c0c">
        <Typography variant='h4'>Signup</Typography>
-       <TextField id='name' onChange={(e)=>setName(e.target.value)}  placeholder='enter name' type={"text"} margin='normal'/>
+       <TextField value={name} id='name' onChange={(e)=>setName(e.target.value)}  placeholder='enter name' type={"text"} margin='normal'/>
        {name.trim()===""&& <small style={{color:"red"}}>enter name</small>}
-       <TextField id='email' onChange={(e)=>setEmail(e.target.value)}  placeholder='enter email' type={"email"} margin='normal'/>
+       <TextField value={email} id='email' onChange={(e)=>setEmail(e.target.value)}  placeholder='enter email' type={"email"} margin='normal'/>
        {email.trim()===""&& <small style={{color:"red"}}>enter email</small>}
-       <TextField id='password' onChange={(e)=>setPassword(e.target.value)}  placeholder='enter password' type={"password"} margin='normal'/>
+       <TextField value={password} id='password' onChange={(e)=>setPassword(e.target.value)}  placeholder='enter password' type={"password"} margin='normal'/>
        {password.trim()===""&& <small style={{color:"red"}} >enter password</small>}
        <Button onClick={handleSubmit} marginTop={5}>Submit</Button>
        <p>Already have account?</p>
        <Button onClick={()=>history.push("/")}  marginTop={3} >login</Button>
       </Box>
+      {loading &&  <h5 style={{marginLeft:"717px",marginTop:"20px"}}>loading...please wait</h5>}
+      {error && <h5 style={{marginLeft:"700px",marginTop:"20px"}}>Account already exists </h5>}
     </div>
   )
 }
