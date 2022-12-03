@@ -84,9 +84,11 @@ function Signup() {
        <Button onClick={handleSubmit} marginTop={5}>Submit</Button>
        <p>Already have account?</p>
        <Button onClick={()=>history.push("/")}  marginTop={3} >login</Button>
+       {loading &&  <h5 >loading...please wait</h5>}
+       {error && <h5>Account already exists </h5>}<br></br>
       </Box>
-      {loading &&  <h5 style={{marginLeft:"717px",marginTop:"20px"}}>loading...please wait</h5>}
-      {error && <h5 style={{marginLeft:"700px",marginTop:"20px"}}>Account already exists </h5>}
+      
+      
     </div>
   )
 }

@@ -94,9 +94,10 @@ function Login() {
        
        <p>new user?</p>
        <Button onClick={()=>history.push("/signup")} marginTop={3} >Signup</Button>
+       {loading &&  <h5 >loading...please wait</h5>}
+      {error && <h5 >Incorrect email or password</h5>}<br></br>
       </Box>
-      {loading &&  <h5 style={{marginLeft:"717px",marginTop:"20px"}}>loading...please wait</h5>}
-      {error && <h5 style={{marginLeft:"700px",marginTop:"20px"}}>Incorrect email or password</h5>}
+      
     </div>
   )
 }
