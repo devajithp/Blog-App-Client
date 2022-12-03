@@ -80,7 +80,7 @@ function Signup() {
        <TextField value={email} id='email' onChange={(e)=>setEmail(e.target.value)}  placeholder='enter email' type={"email"} margin='normal'/>
        {email.trim()===""&& <small style={{color:"red"}}>enter email</small>}
        <TextField value={password} id='password' onChange={(e)=>setPassword(e.target.value)}  placeholder='enter password' type={"password"} margin='normal'/>
-       {password.trim()===""&& <small style={{color:"red"}} >enter password</small>}
+       {password.trim().length<5 && <small style={{color:"red"}} >password must have more than 4 character</small>}
        <Button onClick={handleSubmit} marginTop={5}>Submit</Button>
        <p>Already have account?</p>
        <Button onClick={()=>history.push("/")}  marginTop={3} >login</Button>
