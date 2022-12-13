@@ -7,13 +7,15 @@ function AddBlogs() {
   const[title,setTitle]=useState()
   const[description,setDescription]=useState()
   const[image,setImage]=useState()
+  
   let userId=localStorage.getItem("userId")
   userId=""+userId;
   let blogData={
     title:title,
     description:description,
     image:image,
-    user:userId
+    user:userId,
+    
   }
   
   const handleSubmit=async ()=>{
@@ -22,6 +24,7 @@ function AddBlogs() {
       setTitle("")
       setDescription("")
       setImage("")
+      
       history.push("/blogs")
     
     
@@ -37,6 +40,7 @@ function AddBlogs() {
         <TextField  onChange={(e)=>setDescription(e.target.value)}  ></TextField>
         <Typography variant='h6' sx={{margin:"auto"}}>Image url</Typography>
         <TextField  onChange={(e)=>setImage(e.target.value)} ></TextField>
+       
         <Button style={{backgroundColor:"#861852"}} onClick={handleSubmit} sx={{marginTop:"20px"}} variant='contained'>Add blog</Button>
       </Box>
       </div>

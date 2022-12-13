@@ -90,11 +90,11 @@ function Login() {
        {email.trim()===""&& <small style={{color:"red"}}>enter email</small>}
        <TextField value={password} required="true" id='password' label="Enter Password" onChange={(e)=>setPassword(e.target.value)} placeholder='enter password'  type={"password"} margin='normal'/>
        {password.trim()===""&& <small style={{color:"red"}} >enter password</small>}
-       <Button onClick={handleSubmit} marginTop={5}>Submit</Button>
+       <Button disabled={loading} onClick={handleSubmit} marginTop={5}>{loading?"Signing...":"LogIn"}</Button>
        
        <p>new user?</p>
        <Button onClick={()=>history.push("/signup")} marginTop={3} >Signup</Button>
-       {loading &&  <h5 >loading...please wait</h5>}
+       
       {error && <h5 >Incorrect email or password</h5>}<br></br>
       </Box>
       

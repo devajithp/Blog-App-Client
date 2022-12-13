@@ -81,10 +81,10 @@ function Signup() {
        {email.trim()===""&& <small style={{color:"red"}}>enter email</small>}
        <TextField value={password} id='password' onChange={(e)=>setPassword(e.target.value)}  placeholder='enter password' type={"password"} margin='normal'/>
        {password.trim().length<5 && <small style={{color:"red"}} >password must have more than 4 character</small>}
-       <Button onClick={handleSubmit} marginTop={5}>Submit</Button>
+       <Button disabled={loading} onClick={handleSubmit} marginTop={5}>{loading?"signing...":"SignUp"}</Button>
        <p>Already have account?</p>
-       <Button onClick={()=>history.push("/")}  marginTop={3} >login</Button>
-       {loading &&  <h5 >loading...please wait</h5>}
+       <Button  onClick={()=>history.push("/")}  marginTop={3} >login</Button>
+       
        {error && <h5>Account already exists </h5>}<br></br>
       </Box>
       
